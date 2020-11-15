@@ -1,0 +1,75 @@
+type Deck {
+  id: ID!
+  name: String!
+}
+type Card {
+  id: ID!
+  question: String!
+  answer: String!
+  date: String!
+  repetition: Int!
+  interval: String!
+  factor: Float!
+  deckId: String!
+}
+input CreateCardInput {
+  question: String!
+  answer: String!
+  date: String!
+  deckId: ID!
+}
+input EditCardInput {
+  id: ID!
+  question: String!
+  answer: String!
+}
+type EditCardPayload {
+  id: ID!
+  question: String!
+  answer: String!
+}
+input ScheduleCardInput {
+  id: ID!
+  date: String!
+  repetition: Int!
+  interval: String!
+  factor: Float!
+}
+type ScheduleCardPayload {
+  id: ID!
+  date: String!
+  repetition: Int!
+  interval: String!
+  factor: Float!
+}
+input DeleteCardInput {
+  id: ID!
+}
+input DeleteDeckInput {
+  deckId: ID!
+}
+input UpdateDeckInput {
+  deckId: ID!
+  name: String!
+}
+input CreateDeckInput {
+  name: String!
+}
+input GetCardsInput {
+  deckId: ID!
+}
+type Query {
+  getDecks: [Deck!]!
+  getCards(input: GetCardsInput!): [Card!]!
+}
+type Mutation {
+  login(email: String!, password: String!): String!
+  signUp(email: String!, password: String!): String!
+  createDeck(input: CreateDeckInput!): Deck!
+  updateDeck(input: UpdateDeckInput!): Deck!
+  deleteDeck(input: DeleteDeckInput!): ID!
+  createCard(input: CreateCardInput!): Card!
+  deleteCard(input: DeleteCardInput!): ID!
+  editCard(input: EditCardInput!): EditCardPayload
+  scheduleCard(input: ScheduleCardInput!): ScheduleCardPayload
+}
