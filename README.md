@@ -1,11 +1,26 @@
 # Spaced Repetition app backend
 
-Backend consists of Nest server and PostgreSQL database
+Backend consists of Nest server and PostgreSQL database  
+- [Frontend source code](https://github.com/vladn17/spaced-repetition-front)  
+- [Deployed demo project](https://spacedrepeat.surge.sh/)  
 
 ## Installation
 
 ```bash
 $ npm install
+```
+
+## Database setup
+
+```bash
+# Start postgres database
+$ npm run db:up
+
+# Stop
+$ npm run db:stop
+
+# Remove
+$ npm run db:remove
 ```
 
 ## Running the app
@@ -15,8 +30,10 @@ $ npm install
 $ npm run start:dev
 
 # production
-$ npm run start
+$ npm run start:prod
 ```
+
+
 
 ## Test
 
